@@ -5,7 +5,10 @@ from .forms import BlogFrom, BlogModelForm
 
 
 def home(req):
-    return render(req, 'index.html')
+
+    # posts = Blog.objects.all() # 블로그 모든 객체들 정보를 받아옴
+    posts = Blog.objects.filter().order_by('-date') # 날짜를 기준으로 정렬된 데이터 가져옴 (-는 오름차순)
+    return render(req, 'index.html', {'posts': posts})
 
 
 # HTML Form을 이용해서 DB에 저장하기
