@@ -10,3 +10,13 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    comment = models.TextField(max_length=400)
+    date = models.DateTimeField(auto_now_add=True)
+    # on_delete : Post 가 참고하고 있는 blog 가 삭제되면 post 의 comment 도 같이 삭제됨
+    post = models.ForeignKey(Blog, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.comment

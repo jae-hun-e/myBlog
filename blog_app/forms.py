@@ -1,5 +1,5 @@
 from django import forms
-from .models import Blog
+from .models import Blog, Comment
 
 
 class BlogFrom(forms.Form):
@@ -14,3 +14,8 @@ class BlogModelForm(forms.ModelForm):
         fields = '__all__'  # blog객체 안에 있는 모든Fields
         # fields = ['title', 'body']  # blog 객체 안에 있는 특정 fileds
 
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['comment']

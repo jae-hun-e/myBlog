@@ -20,7 +20,10 @@ urlpatterns = [
 
     # detail page
     path('detial/<int:blog_id>', views.detail, name="detail"),
+
+    # create comment
+    path('create_comment/<int:blog_id>', views.create_comment, name="create_comment"),
 ]
 
 # media 파일에 접근할 수 있는 url 추가
-urlpatterns += urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

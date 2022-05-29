@@ -6,10 +6,28 @@
 <h3>날짜</h3>
 {{blog_detail.date}}
 
+<h3>첨부파일</h3>
 {% if blog_detail.photo %}
 <br/>
     <img src = "{{ blog_detail.photo.url }}" alt="" height="400" width="400"/>
 <!--    {{blog_detail.photo.path}}-->
 {% endif %}
+<hr>
 
+<h3> 댓글 </h3>
+<form method="POST" action="{% url 'create_comment' blog_detail.id %}">
+    {% csrf_token %}
+
+    {{ comment_form }}
+
+    <input type="submit"/>
+</form>
+<hr>
+<!--댓글 목록-->
+<h4>댓글 목록</h4>
+<!--특정 객체(blog_detail)를 참고하는 어떤 모델(comment) 의 집합(_set)-->
+{% for comment in blog_detail.comment_set.all%}
+<p> {{comment}}</p>
+<hr>
+{% endfor %}
 
