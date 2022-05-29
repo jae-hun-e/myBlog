@@ -1,0 +1,15 @@
+<h1>제목</h1>
+{{blog_detail.title}}
+
+<h2>내용</h2>
+{{blog_detail.body}}
+<h3>날짜</h3>
+{{blog_detail.date}}
+
+{% if blog_detail.photo %}
+<br/>
+    <img src = "{{ blog_detail.photo.url }}" alt="" height="400" width="400"/>
+<!--    {{blog_detail.photo.path}}-->
+{% endif %}
+
+
