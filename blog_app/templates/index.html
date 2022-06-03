@@ -8,7 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{% url 'login' %}">로그인</a>
+
+    {% if user.is_authenticated%}
+    안녕하세요 {{user.username}}님!
+        <a href="{% url 'logout' %}">로그아웃</a>
+    <br/>
+    {% else %}
+    아직 로그인이 되지 않았어요...
+        <a href="{% url 'login' %}">로그인</a>
+    <br/>
+    {% endif %}
+
 
     <h1>My Sample Blog</h1>
     <!--블로그 글 목록-->
@@ -25,6 +35,8 @@
     <a href="{% url 'new' %}">새 글 작성 - HTML Form 이용</a> <br/>
     <a href="{% url 'form_create' %}">새 글 작성 - Django Form 이용</a><br/>
 -->
+    {% if user.is_authenticated%}
     <a href="{% url 'modelformcreate' %}">새 글 작성 - Medels Form 이용</a>
+    {% endif %}
 </body>
 </html>

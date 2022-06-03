@@ -28,6 +28,9 @@ urlpatterns = [
     # login
     path('login', accounts_views.login, name="login"),
 
+    # logout
+    path('logout', accounts_views.logout, name="logout"),
+
 ]
 
 # media 파일에 접근할 수 있는 url 추가
