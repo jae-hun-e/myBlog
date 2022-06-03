@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from blog_app import views
+from accounts import views as accounts_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,6 +24,10 @@ urlpatterns = [
 
     # create comment
     path('create_comment/<int:blog_id>', views.create_comment, name="create_comment"),
+
+    # login
+    path('login', accounts_views.login, name="login"),
+
 ]
 
 # media 파일에 접근할 수 있는 url 추가
